@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Hafizh FF
+ * @copyright Copyright (c) 2020 Magento (https://www.magento.com)
+ * @package Hz_PriceMonitor
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Hz_PriceMonitor" setup_version="1.0.0" />
+</config>

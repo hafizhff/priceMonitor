@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \Hz\PriceMonitor\Block\Display $block
+ */
+?>
+<form method="post" action="<?php echo $this->getUrl('*/product/add') ?>" style="margin-top:150px;">
+	<label for="product_url"><?php echo __('Product Url : ') ?></label>
+	<input type="text" name="product_url" id="product_url" />
+	<input type="submit" value="Get Product Data" />
+</form>
+<a href="<?php echo $this->getUrl('*/product/show/') ?>"><?php echo __('Go To List Page') ?></a>

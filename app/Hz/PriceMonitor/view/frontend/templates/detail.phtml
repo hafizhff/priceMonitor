@@ -1,0 +1,38 @@
+<?php
+/**
+ * @var \Hz\PriceMonitor\Block\Product $block
+ */
+?>
+<h1><?php echo __('Detail Product') ?></h1>
+
+<?php if ($block->getCollectionById() == false) : ?>
+	<p><?php echo __('There is No Product') ?></p>
+<?php else : ?>
+	<p><?php echo __('Name') ?> : <?php echo $block->getCollectionById()->getName() ?></p>
+	<p><?php echo __('Price') ?> : <?php echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($block->getCollectionById()->getPrice(),true,false); ?></p>
+	<p><?php echo __('Description') ?> : <?php echo $block->getCollectionById()->getDescription() ?></p>
+	<!-- <p><?php echo __('Image') ?> : </p> -->
+
+	<?php if ($block->getCollectionLogByUrl($block->getCollectionById()->getUrl()) == false) : ?>
+		<p><?php echo __('There is No Log for now') ?></p>
+	<?php else : ?>
+		<table style="margin-top:150px;">
+			<thead>
+				<th><?php echo __('Price') ?></th>
+				<th><?php echo __('Url') ?></th>
+				<th><?php echo __('Update Date') ?></th>
+			</thead>
+			<tbody>
+				<?php foreach ($block->getCollectionLogByUrl($block->getCollectionById()->getUrl()) as $item) : ?>
+					<tr>
+						<td><?php echo $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($item->getPrice(),true,false); ?></td>
+						<td><?php echo $item->getUrl() ?></td>
+						<td><?php echo $item->getCreatedAt() ?></td>
+					</tr>
+				<?php endforeach ?>
+			</tbody>
+		</table>
+	<?php endif; ?>
+<?php endif; ?>
+
+<a href="<?php echo $this->getUrl('*/product/show') ?>"><?php echo __('Go To List Page') ?></a>
